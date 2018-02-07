@@ -63,6 +63,14 @@ img {
 
 	}
 
+	.zmiti-title{
+		@include pos(a);
+
+		width: 6rem;
+		left: 2rem;
+		top: 1rem;
+		z-index: 10;
+	}
 }
 
 @-webkit-keyframes pulse {

@@ -1,6 +1,11 @@
 <template>
 	<div :style='{background: "url("+imgs.mapBg+") no-repeat center bottom",backgroundSize:"cover"}' :class="{'show':show}" class="zmiti-index-main-ui lt-full" >
 		
+
+		<div class="zmiti-title">
+			<img :src="imgs.title" alt="">
+		</div>
+
 		<div class="zmiti-index-map">
 			<img :src="imgs.map" alt="">
 
