@@ -74,7 +74,7 @@
 			</div>
 		</div>
 		<div  class="zmiti-share-btns" v-if='isShare'>
-			<div class="zmiti-restart-btn">
+			<div @click='restart' class="zmiti-restart-btn">
 				<span>我也要为祖国守边防</span>
 				<img :src="imgs.shareBtnBg" alt="">
 			</div>
@@ -117,6 +117,10 @@
 			}
 		},
 		methods:{
+
+			restart(){
+				window.location.href = window.location.href.split('?')[0];
+			},
 
 			showMasks(){
 				this.showMask = true;
@@ -175,7 +179,7 @@
 					url = zmitiUtil.changeURLPar(url,'nickname',encodeURI(window.nickname));
 					url = zmitiUtil.changeURLPar(url,'address',encodeURI(address))
 
-					zmitiUtil.wxConfig(window.nickname+'在'+address+'为祖国站岗守岁，祝您新春快乐，阖家幸福！',url)
+					zmitiUtil.wxConfig(window.nickname+'在'+address+'为祖国站岗守岁，祝您新春快乐，阖家幸福！',window.desc,url)
 			})
 
 			obserable.on('toggleSharePage',(dt)=>{
@@ -219,7 +223,7 @@
 											url = zmitiUtil.changeURLPar(url,'nickname',encodeURI(window.nickname));
 											url = zmitiUtil.changeURLPar(url,'address',encodeURI(address.name))
 
-											zmitiUtil.wxConfig(window.nickname+'在'+address.name+'为祖国站岗守岁，祝您新春快乐，阖家幸福！',url)
+											zmitiUtil.wxConfig(window.nickname+'在'+address.name+'为祖国站岗守岁，祝您新春快乐，阖家幸福！',window.desc,url)
 										       
 							            }
 

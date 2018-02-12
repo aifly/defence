@@ -24,11 +24,11 @@ new Vue({
 		viewH: document.documentElement.clientHeight,
 		isShare: false,
 		show: false,
-		posData:window.posData,
+		posData: window.posData,
 		username: '',
 		wish: '',
-		width:0,
-		loaded:false
+		width: 0,
+		loaded: false
 	},
 	el: '#app',
 	template: `<div>
@@ -41,7 +41,7 @@ new Vue({
 			<img v-if='rotate' :src='imgs.play'/>
 			<img v-if='!rotate' :src='imgs.paused'/>
 		</div>
-		<div v-if='!loaded' :style='{background:"url("+imgs.shareBg+") no-repeat center ",backgroundSize:"cover"}' class='zmiti-loading lt-full'>
+		<div v-if='!loaded' :style='{background:"#fff url("+imgs.shareBg+") no-repeat center ",backgroundSize:"cover"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
 				<div class='zmiti-loading-bar' >
 					<div :style="{width:width+'%'}">
@@ -114,19 +114,6 @@ new Vue({
 		this.address = decodeURI(address);
 		this.src = src;
 
-		if (this.isShare) {
-
-			obserable.trigger({
-				type:'showSharePage',
-				data:{
-					src,
-					username,
-					address,
-				}
-			})
-			 
-		}
-
 
 
 		this.loading(arr, (s) => {
@@ -163,7 +150,22 @@ new Vue({
 		this.updatePv();
 
 
-		zmitiUtil.getOauthurl();
-		zmitiUtil.wxConfig(document.title,document.title);
+		if (this.isShare) {
+
+			obserable.trigger({
+				type: 'showSharePage',
+				data: {
+					src,
+					username,
+					address,
+				}
+			})
+
+
+		} else {
+
+			zmitiUtil.getOauthurl();
+			zmitiUtil.wxConfig(document.title, window.desc);
+		}
 	}
 })
