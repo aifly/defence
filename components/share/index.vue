@@ -74,7 +74,7 @@
 			</div>
 		</div>
 		<div  class="zmiti-share-btns" v-if='isShare'>
-			<div @click='restart' class="zmiti-restart-btn">
+			<div v-tap='restart' class="zmiti-restart-btn">
 				<span>我也要为祖国守边防</span>
 				<img :src="imgs.shareBtnBg" alt="">
 			</div>
