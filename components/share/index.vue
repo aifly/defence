@@ -112,7 +112,7 @@
 				viewW:document.documentElement.clientWidth,
 				viewH:document.documentElement.clientHeight,
 				showMask:false,
-				src:'http://bluesky.zmiti.com/zmiti_ele/public/f2d2fbbb2096c31a9bed133074d5a341.png',
+				src:'http://'+window.server+'.zmiti.com/zmiti_ele/public/f2d2fbbb2096c31a9bed133074d5a341.png',
 				isMan:true
 			}
 		},
@@ -143,7 +143,7 @@
 
 				setTimeout(()=>{
 					$.ajax({
-						url: window.protocol+'//bluesky.zmiti.com/v2/share/delete_file/',
+						url: window.protocol+'//'+window.server+'.zmiti.com/v2/share/delete_file/',
 
 						type:'post',
 						data:{
@@ -200,7 +200,7 @@
 							        var url = canvas.toDataURL();
 							        $.ajax({
 							          //url: window.protocol+'//api.zmiti.com/v2/share/base64_image/',
-							          url:window.protocol+'//bluesky.zmiti.com/v2/share/base64_image/',
+							          url:window.protocol+'//'+window.server+'.zmiti.com/v2/share/base64_image/',
 							          type: 'post',
 							          data: {
 							            setcontents: url,

@@ -28,6 +28,7 @@ var zmitiUtil = {
 	},
 	wxConfig: function(title, desc, url, isDebug = false) {
 		var s = this;
+		
 		var img = window.baseUrl + '/assets/images/300.jpg';
 
 		var appId = this.wxInfo().wxappid;
@@ -112,6 +113,11 @@ var zmitiUtil = {
 			wxappsecret,
 			customid
 		} = this.wxInfo();
+
+		if(!s.isWeiXin()){
+			return;
+		}
+
 		$.ajax({
 			type: 'post',
 			//url: window.baseUrl + '/weixin/getwxuserinfo/',
