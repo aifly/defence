@@ -22008,6 +22008,11 @@
 	// 		<div :style="posData.bgStyle" class="zmiti-content-bg">
 	//
 	// 		</div>
+	//
+	// 		<div v-tap='back' class="zmiti-back">
+	// 			<img :src="imgs.back" alt="">
+	// 		</div>
+	//
 	// 		<div class="zmiti-content-C">
 	// 			<div v-for='div in posData.content'>
 	// 				{{div}}
@@ -22060,14 +22065,15 @@
 				obserable.trigger({
 					type: 'showUploadPage'
 				});
+			},
+			back: function back() {
+				this.show = false;
 			}
 		},
 		mounted: function mounted() {
 			var _this = this;
 
 			var obserable = this.obserable;
-
-			console.log(this.posData);
 
 			obserable.on('showContentPage', function (data) {
 				_this.show = true;
@@ -22115,7 +22121,7 @@
 
 
 	// module
-	exports.push([module.id, ".lt-full{width:100%;height:100%;position:absolute;left:0;top:0}.zmiti-text-overflow{overflow:hidden;white-space:nowrap;word-break:break-all;text-overflow:ellipsis;-webkit-text-overflow:ellipsis}.zmiti-play{width:.8rem;height:.8rem;border-radius:50%;position:fixed;z-index:1000;right:.5rem;top:.5rem}.zmiti-play.rotate{-webkit-animation:rotate 5s linear infinite;animation:rotate 5s linear infinite}@-webkit-keyframes rotate{to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.zmiti-content-main-ui{z-index:102}.zmiti-content-main-ui .zmiti-content-bg{position:absolute;width:14rem;left:-2rem;height:100%}.zmiti-content-main-ui .zmiti-content-C{width:8rem;left:.5rem;font-size:.35rem;text-indent:2em;position:absolute;top:2rem;color:#fff;background:rgba(0,0,0,0.2);padding:.5rem;border:1px solid #b49da8;border-radius:10px}.zmiti-content-main-ui .zmiti-content-defence{width:5.4rem;position:absolute;bottom:1rem;left:2.3rem;color:#fff}.zmiti-content-main-ui .zmiti-content-defence span{position:relative;display:block;width:100%;font-size:.43rem;top:.9rem;text-align:center}\r\n/*# sourceMappingURL=content.css.map */\r\n", ""]);
+	exports.push([module.id, ".lt-full{width:100%;height:100%;position:absolute;left:0;top:0}.zmiti-text-overflow{overflow:hidden;white-space:nowrap;word-break:break-all;text-overflow:ellipsis;-webkit-text-overflow:ellipsis}.zmiti-play{width:.8rem;height:.8rem;border-radius:50%;position:fixed;z-index:1000;right:.5rem;top:.5rem}.zmiti-play.rotate{-webkit-animation:rotate 5s linear infinite;animation:rotate 5s linear infinite}@-webkit-keyframes rotate{to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.zmiti-content-main-ui{z-index:102}.zmiti-content-main-ui .zmiti-content-bg{position:absolute;width:14rem;left:-2rem;height:100%}.zmiti-content-main-ui .zmiti-content-C{width:8rem;left:.5rem;font-size:.35rem;text-indent:2em;position:absolute;top:2rem;color:#fff;background:rgba(0,0,0,0.2);padding:.5rem;border:1px solid #b49da8;border-radius:10px}.zmiti-content-main-ui .zmiti-back{position:absolute;width:1rem;left:.5rem;top:.5rem}.zmiti-content-main-ui .zmiti-content-defence{width:5.4rem;position:absolute;bottom:1rem;left:2.3rem;color:#fff}.zmiti-content-main-ui .zmiti-content-defence span{position:relative;display:block;width:100%;font-size:.43rem;top:.9rem;text-align:center}\r\n/*# sourceMappingURL=content.css.map */\r\n", ""]);
 
 	// exports
 
@@ -22662,7 +22668,7 @@
 /* 20 */
 /***/ (function(module, exports) {
 
-	module.exports = "\r\n\t<div v-show='show' ref='content'  class=\"lt-full zmiti-content-main-ui\"\r\n\tdata-friction-x=\"0.05\"\r\n\tdata-scalar-x=\"25\"\r\n\tdata-scalar-y=\"0\"\r\n\tdata-limit-y='0'\r\n\t>\r\n\t\t<div :style=\"posData.bgStyle\" class=\"zmiti-content-bg\">\r\n\t\t\t\r\n\t\t</div>\r\n\t\t<div class=\"zmiti-content-C\">\r\n\t\t\t<div v-for='div in posData.content'>\r\n\t\t\t\t{{div}}\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"zmiti-content-defence\" v-tap='entryUpload'>\r\n\t\t\t<span>我也要为祖国守边防</span>\r\n\t\t\t<img :src='imgs.defence' />\r\n\t\t</div>\r\n\t</div>\r\n";
+	module.exports = "\r\n\t<div v-show='show' ref='content'  class=\"lt-full zmiti-content-main-ui\"\r\n\tdata-friction-x=\"0.05\"\r\n\tdata-scalar-x=\"25\"\r\n\tdata-scalar-y=\"0\"\r\n\tdata-limit-y='0'\r\n\t>\r\n\t\t<div :style=\"posData.bgStyle\" class=\"zmiti-content-bg\">\r\n\t\t\t\r\n\t\t</div>\r\n\t\t\r\n\t\t<div v-tap='back' class=\"zmiti-back\">\r\n\t\t\t<img :src=\"imgs.back\" alt=\"\">\r\n\t\t</div>\r\n\r\n\t\t<div class=\"zmiti-content-C\">\r\n\t\t\t<div v-for='div in posData.content'>\r\n\t\t\t\t{{div}}\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"zmiti-content-defence\" v-tap='entryUpload'>\r\n\t\t\t<span>我也要为祖国守边防</span>\r\n\t\t\t<img :src='imgs.defence' />\r\n\t\t</div>\r\n\t</div>\r\n";
 
 /***/ }),
 /* 21 */

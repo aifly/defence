@@ -8,6 +8,11 @@
 		<div :style="posData.bgStyle" class="zmiti-content-bg">
 			
 		</div>
+		
+		<div v-tap='back' class="zmiti-back">
+			<img :src="imgs.back" alt="">
+		</div>
+
 		<div class="zmiti-content-C">
 			<div v-for='div in posData.content'>
 				{{div}}
@@ -43,18 +48,19 @@
 				obserable.trigger({
 					type:'showUploadPage'
 				})
+			},
+			back(){
+				this.show = false;
 			}
 		},
 		mounted(){
 			var {obserable} = this;
-			console.log(this.posData)
 
 			obserable.on('showContentPage',(data)=>{
 				this.show = true;
 				this.posData = data.posData;
 				$(this.$refs['content']).parallax();
 			})
-			
 
 		}
 	}

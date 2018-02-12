@@ -23,6 +23,15 @@
 		@include br(10px);
 	}
 
+	.zmiti-back{
+		@include pos(a);
+
+		width: 1rem;
+
+		left: .5rem;
+		top: .5rem;
+	}
+
 	.zmiti-content-defence{
 		width: 5.4rem;
 		@include pos(a);

@@ -21,6 +21,7 @@ var imgs = {
 	picTitle:'./assets/images/pic-title.jpg',
 	shareBtnBg:'./assets/images/share-bg.png',
 	corner1:'./assets/images/corner1.png',
+	back:'./assets/images/back.png',
 	arrow:'./assets/images/arrow.png',
 	xijiSoldier:'./assets/images/nan-xiji.jpg',
 	heweitanSoldier:'./assets/images/nan-heweitan.jpg',
