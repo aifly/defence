@@ -11998,6 +11998,7 @@
 			var isDebug = arguments.length <= 3 || arguments[3] === undefined ? false : arguments[3];
 
 			var s = this;
+
 			var img = window.baseUrl + '/assets/images/300.jpg';
 
 			var appId = this.wxInfo().wxappid;
@@ -12069,6 +12070,10 @@
 			var wxappid = _wxInfo.wxappid;
 			var wxappsecret = _wxInfo.wxappsecret;
 			var customid = _wxInfo.customid;
+
+			if (!s.isWeiXin()) {
+				return;
+			}
 
 			_jquery2["default"].ajax({
 				type: 'post',
@@ -22769,7 +22774,7 @@
 					type: "POST",
 					contentType: false,
 					processData: false,
-					url: window.protocol + '//bluesky.zmiti.com/v2/share/upload_file/',
+					url: window.protocol + '//' + window.server + '.zmiti.com/v2/share/upload_file/',
 					data: formData,
 					error: function error(e) {},
 					success: function success(data) {
@@ -22791,7 +22796,7 @@
 				var posData = obserable.trigger({ type: 'getPosData' });
 				var s = this;
 				_jquery2['default'].ajax({
-					url: window.protocol + '//bluesky.zmiti.com/v2/aiapi/ptu_facemerge',
+					url: window.protocol + '//' + window.server + '.zmiti.com/v2/aiapi/ptu_facemerge',
 					type: "post",
 					data: {
 						image: url,
@@ -22838,7 +22843,8 @@
 
 				setTimeout(function () {
 					_jquery2['default'].ajax({
-						url: window.protocol + '//bluesky.zmiti.com/v2/share/delete_file/',
+
+						url: window.protocol + '//' + window.server + '.zmiti.com/v2/share/delete_file/',
 
 						type: 'post',
 						data: {
@@ -23074,7 +23080,7 @@
 				viewW: document.documentElement.clientWidth,
 				viewH: document.documentElement.clientHeight,
 				showMask: false,
-				src: 'http://bluesky.zmiti.com/zmiti_ele/public/f2d2fbbb2096c31a9bed133074d5a341.png',
+				src: 'http://' + window.server + '.zmiti.com/zmiti_ele/public/f2d2fbbb2096c31a9bed133074d5a341.png',
 				isMan: true
 			};
 		},
@@ -23110,7 +23116,7 @@
 
 				setTimeout(function () {
 					_jquery2['default'].ajax({
-						url: window.protocol + '//bluesky.zmiti.com/v2/share/delete_file/',
+						url: window.protocol + '//' + window.server + '.zmiti.com/v2/share/delete_file/',
 
 						type: 'post',
 						data: {
@@ -23168,7 +23174,7 @@
 									var url = canvas.toDataURL();
 									_jquery2['default'].ajax({
 										//url: window.protocol+'//api.zmiti.com/v2/share/base64_image/',
-										url: window.protocol + '//bluesky.zmiti.com/v2/share/base64_image/',
+										url: window.protocol + '//' + window.server + '.zmiti.com/v2/share/base64_image/',
 										type: 'post',
 										data: {
 											setcontents: url,

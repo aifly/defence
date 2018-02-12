@@ -67,7 +67,7 @@
 			        type: "POST",
 			        contentType: false,
 			        processData: false,
-			        url: window.protocol+'//bluesky.zmiti.com/v2/share/upload_file/',
+			        url: window.protocol+'//'+window.server+'.zmiti.com/v2/share/upload_file/',
 			        data: formData,
 			        error(e){
 			        	
@@ -94,7 +94,7 @@
 				var posData = obserable.trigger({type:'getPosData'});
 				var s = this;
 				$.ajax({
-				  	url:window.protocol+'//bluesky.zmiti.com/v2/aiapi/ptu_facemerge',
+				  	url:window.protocol+'//'+window.server+'.zmiti.com/v2/aiapi/ptu_facemerge',
 				  	type:"post",
 				  	data:{
 				  		image:url,
@@ -142,7 +142,8 @@
 
 				setTimeout(()=>{
 					$.ajax({
-						url: window.protocol+'//bluesky.zmiti.com/v2/share/delete_file/',
+
+						url: window.protocol+'//'+window.server+'.zmiti.com/v2/share/delete_file/',
 
 						type:'post',
 						data:{
