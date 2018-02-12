@@ -26,18 +26,19 @@ var zmitiUtil = {
 			return false;
 		}
 	},
-	wxConfig: function(title, desc, url, isDebug = true) {
+	wxConfig: function(title, desc, url, isDebug = false) {
 		var s = this;
 		
 		var img = window.baseUrl + '/assets/images/300.jpg';
 
 		var appId = this.wxInfo().wxappid;
 
+
 		var durl = url || location.href.split('#')[0];
 
 		var code_durl = encodeURIComponent(durl);
 
-		alert(title+' \n' + desc + '\n');
+		//alert(title+' \n' + desc + '\n');
 
 		$.ajax({
 			type: 'get',

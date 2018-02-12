@@ -180,7 +180,11 @@
 					url = zmitiUtil.changeURLPar(url,'nickname',encodeURI(window.nickname));
 					url = zmitiUtil.changeURLPar(url,'address',encodeURI(address))
 					
-					zmitiUtil.wxConfig(decodeURI(window.nickname)+'在'+decodeURI(address)+'为祖国站岗守岁，祝您新春快乐，阖家幸福！',window.desc,url)
+
+					setTimeout(()=>{
+						zmitiUtil.wxConfig(decodeURI(window.nickname)+'在'+decodeURI(address)+'为祖国站岗守岁，祝您新春快乐，阖家幸福！',window.desc,url)
+					},100)
+
 			})
 
 			obserable.on('toggleSharePage',(dt)=>{
