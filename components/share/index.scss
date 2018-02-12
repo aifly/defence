@@ -3,7 +3,6 @@
 .zmiti-share-main-ui{
 	z-index:104;
 
-	overflow:hidden;
 
 	.zmiti-share-btns{
 		display: none;
@@ -16,9 +15,14 @@
 	}
 
 	.zmiti-cache-page{
-		@include transform(scale(2));
-		left: 20rem;
+		width: 10rem;
+		height: 100%;
+		left:20rem;
+		//opacity:0;
 		top: 20rem;
+		@include transform(scale(2));
+		@include pos(a);
+		z-index: 100;
 	}
 
 

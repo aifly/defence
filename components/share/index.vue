@@ -189,7 +189,7 @@
 
 					var img = new Image();
 					img.onload = ()=>{
-						var dom = this.$refs['zmiti-cache-page'];
+						
 						var dpi = 2;
 
 						var address = obserable.trigger({
@@ -198,6 +198,7 @@
 
 						s.posData = address;
 						setTimeout(()=>{
+							var dom = this.$refs['zmiti-cache-page'];
 							html2canvas(dom,{
 								useCORS: true,
 								onrendered: function(canvas) {
@@ -235,7 +236,7 @@
 							      width: s.viewW*2,
 							      height: s.viewH*2
 							})
-						},4000)
+						},3000)
 						
 					}
 					img.src = this.src;

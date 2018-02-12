@@ -7,7 +7,6 @@
 		this.handlers[type] =  this.handlers[type] || [];
 	
 		this.off(type);
-		console.log({handler,type})
 		this.handlers[type].push({handler,type});
 
 	}
