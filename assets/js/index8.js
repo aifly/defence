@@ -11995,7 +11995,7 @@
 			}
 		},
 		wxConfig: function wxConfig(title, desc, url) {
-			var isDebug = arguments.length <= 3 || arguments[3] === undefined ? false : arguments[3];
+			var isDebug = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
 
 			var s = this;
 
@@ -12006,6 +12006,8 @@
 			var durl = url || location.href.split('#')[0];
 
 			var code_durl = encodeURIComponent(durl);
+
+			alert(title + ' \n' + desc + '\n');
 
 			_jquery2["default"].ajax({
 				type: 'get',
@@ -23156,7 +23158,7 @@
 				url = _libUtil2['default'].changeURLPar(url, 'nickname', encodeURI(window.nickname));
 				url = _libUtil2['default'].changeURLPar(url, 'address', encodeURI(address));
 
-				_libUtil2['default'].wxConfig(window.nickname + '在' + address + '为祖国站岗守岁，祝您新春快乐，阖家幸福！', window.desc, url);
+				_libUtil2['default'].wxConfig(decodeURI(window.nickname) + '在' + decodeURI(address) + '为祖国站岗守岁，祝您新春快乐，阖家幸福！', window.desc, url);
 			});
 
 			obserable.on('toggleSharePage', function (dt) {
