@@ -38,8 +38,7 @@ new Vue({
 		<Share :obserable='obserable'></Share>
 		<audio ref='audio' src='./assets/music/bg.mp3' autoplay loop></audio>
 		<div  @click='toggleMusic' class='zmiti-play' :class='{"rotate":rotate}'>
-			<img v-if='rotate' :src='imgs.play'/>
-			<img v-if='!rotate' :src='imgs.paused'/>
+			<img  :src='imgs.play'/>
 		</div>
 		<div v-if='!loaded' :style='{background:"#fff url("+imgs.shareBg+") no-repeat center ",backgroundSize:"cover"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
