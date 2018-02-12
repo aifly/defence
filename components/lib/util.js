@@ -29,7 +29,6 @@ var zmitiUtil = {
 	wxConfig: function(title, desc, url, isDebug = false) {
 		var s = this;
 		var img = window.baseUrl + '/assets/images/300.jpg';
-		//var appId = 'wxfacf4a639d9e3bcc'; //'wxfacf4a639d9e3bcc'; // data.wxappid; // 'wxfacf4a639d9e3bcc'; //data.wxappid;
 
 		var appId = this.wxInfo().wxappid;
 
@@ -39,7 +38,6 @@ var zmitiUtil = {
 
 		$.ajax({
 			type: 'get',
-			//url: "http://api.zmiti.com/weixin/jssdk.php?type=signature&durl=" + code_durl + '&worksid=' + window.customid,
 			url: window.baseUrl + "/weixin/jssdk.php?type=signature&durl=" + code_durl + '&worksid=' + window.customid,
 			dataType: 'jsonp',
 			jsonp: "callback",
@@ -143,16 +141,20 @@ var zmitiUtil = {
 
 				} else {
 					if (s.isWeiXin()) {
-						var wish = s.getQueryString('wish');
-						var username = s.getQueryString('username');
+						var wish = s.getQueryString('src');
+						var nickname = s.getQueryString('nickname');
+						var address = s.getQueryString('address');
 
 						var redirect_uri = window.location.href.split('?')[0];
 
 						if (wish) {
-							redirect_uri = s.changeURLPar(redirect_uri, 'wish', (wish));
+							redirect_uri = s.changeURLPar(redirect_uri, 'src', (wish));
 						}
-						if (username) {
-							redirect_uri = s.changeURLPar(redirect_uri, 'username', (username));
+						if (nickname) {
+							redirect_uri = s.changeURLPar(redirect_uri, 'nickname', (nickname));
+						}
+						if (address) {
+							redirect_uri = s.changeURLPar(redirect_uri, 'address', (address));
 						}
 
 						$.ajax({

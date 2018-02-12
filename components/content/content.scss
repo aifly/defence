@@ -1,0 +1,42 @@
+@import "../css/base.scss";
+
+.zmiti-content-main-ui{
+	z-index:102;
+	.zmiti-content-bg{
+		@include pos(a);
+		width: 14rem;
+		left: -2rem;
+		height: 100%;
+		
+	}
+	.zmiti-content-C{
+		width: 8rem;
+		left: .5rem;
+		font-size:.35rem;
+		text-indent: 2em;
+		@include pos(a);
+		top: 2rem;
+		color:#fff;
+		background: rgba(0,0,0,.2);
+		padding: .5rem;
+		border:1px solid #b49da8;
+		@include br(10px);
+	}
+
+	.zmiti-content-defence{
+		width: 5.4rem;
+		@include pos(a);
+		bottom: 1rem;
+		left: 2.3rem;
+		color:#fff;
+		span{
+			@include pos(r);
+			display: block;
+			width: 100%;
+			font-size:.43rem;
+			top: .9rem;
+			text-align: center;
+		}
+
+	}
+}

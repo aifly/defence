@@ -1,0 +1,147 @@
+﻿@import "../css/base.scss";
+
+.zmiti-share-main-ui{
+	z-index:104;
+
+	overflow:hidden;
+
+	.zmiti-share-btns{
+		display: none;
+	}
+	
+	.zmiti-create-img{
+		@include pos(a);
+		left: 0;
+		top: 0;
+	}
+
+	.zmiti-cache-page{
+		@include transform(scale(2));
+		left: 20rem;
+		top: 20rem;
+	}
+
+
+	.zmiti-copyright{
+		@include pos(a);
+		display: none;
+		width: 12rem;
+		height: .7rem;
+		left: -1rem;
+		@include transform(scale(.8));
+		bottom:0;
+		line-height: .7rem;
+		font-size: 12px;
+		color:#ce1126;
+		text-align: center;
+		span{
+			margin-right:.4rem;
+		}
+	}
+	.zmiti-share-img-ui{
+		@include transition(.5s .2s);
+	}
+	.zmiti-share-corner{
+		display: none;
+	}
+	&.active{
+		
+
+		.zmiti-merge-img1{
+			font-size: 0;
+			img{
+				width: 50%;
+			}
+		}
+		.zmiti-share-img-ui{
+			background: #fff;
+			@include transformOrigin(center 20%);
+			@include transform(scale(.75));
+			border:3px solid #d41133;
+			box-sizing:border-box;
+			padding: 4px;
+			&>div{
+				@include pos(a);
+				overflow: hidden;
+
+				@at-root.zmiti-pic-title{
+					img:nth-of-type(2){
+						@include pos(a);
+						bottom: 0;
+						left: 0;
+					}
+				}
+			}
+			.zmiti-share-corner{
+				@include pos(a);
+				bottom:-.5rem;;
+				left: -.5rem;
+				display: block;
+			}
+			.zmiti-share-corner1{
+				bottom:auto;
+				left: auto;	
+				right: -.5rem;
+				top: -.5rem;
+				@include transform(rotate(180deg));
+			}
+
+		}
+		.zmiti-copyright{
+			display: block;
+		}
+		.zmiti-share-btns{
+			display: block;
+			@include displayBox(horizontal);
+			@include pos(a);
+			width: 8rem;
+			left: 1rem;
+			bottom: .7rem;
+			&>div{
+				width: 3.6rem;
+				&:nth-of-type(1){
+					margin-right: .4rem;
+				}
+				&:nth-of-type(2){
+					margin-left: .4rem;
+				}
+				@include pos(r);
+			}
+			img{
+			}
+			span{
+				@include pos(a);
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				text-align: center;
+				color:#fff;
+				font-size:.5rem;
+				text-indent: -.2rem;
+				line-height: 1.8rem;
+			}
+		}
+	}
+	.zmiti-pos-title{
+		@include pos(a);
+		width: 3.3rem;
+		right: .4rem;
+		bottom:3.4rem;
+	}
+
+	.zmiti-restart-btn{
+		top: -.4rem !important;
+		text-align: center;
+		width: 6rem !important;
+		span{
+			font-size: .44rem !important;
+			text-indent: -.3rem !important;
+			line-height: 1.4rem !important;
+		}
+		img{
+			width: 6rem;
+			height: 1.5rem;
+		}
+	}
+}

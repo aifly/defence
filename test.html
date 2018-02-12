@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=640" />
+</head>
+<body>
+	
+	<input type="file" id="file" onChange='upload()' />
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+			window.protocol = location.protocol;	
+
+			function upload(){
+
+				var formData = new FormData();
+	  		    var s = this;
+	  					
+			      formData.append('setupfile', document.getElementById('file').files[0]);
+			      formData.append('uploadtype', 0);
+			     
+			   	   $.ajax({
+				        type: "POST",
+				        contentType: false,
+				        processData: false,
+				        url: window.protocol+'//api.zmiti.com/v2/share/upload_file/',
+				        data: formData,
+				        error(e){
+				        	
+				        },
+				        success(data){
+		        	     if (data.getret === 0) {
+					          var url = data.getfileurl[0].datainfourl;
+					          var img = new Image();
+					          img.crossOrigin = 'anonymous';
+					        	img.onload = function(){
+									  
+									  var canvas  = document.createElement('canvas');
+
+									  canvas.width = this.width;
+									  canvas.height = this.height;
+									  //canvas.className = 'zmiti-cache-canvas';
+
+									  var context = canvas.getContext('2d');
+
+									  //document.body.appendChild(canvas)
+
+
+									  context.drawImage(this,0,0);
+									  $.ajax({
+									  	url:window.protocol+'//api.zmiti.com/v2/aiapi/ptu_facemerge',
+									  	type:"post",
+									  	data:{
+									  		image:canvas.toDataURL(),
+									  		model:1,
+									  		imagetype:2
+									  	}
+									  }).done((data)=>{
+									  	if(data.getret ===0 ){
+									  		///console.log(data.airesult);
+									  	}
+									  	console.log(data);
+									  })
+
+									  ///s.deleteImg(this.src);     	
+
+					        	}
+					          img.src = url
+					      }
+				        }
+			        
+				 	 });
+				 
+
+			}
+				
+	</script>
+</body>
+</html>

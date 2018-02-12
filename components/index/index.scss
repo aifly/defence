@@ -51,14 +51,89 @@ img {
 		top: 50%;
 		left: 0;
 		@include transform(translate3d(0, -50%, 0));
-
+			
 		.zmiti-index-pos {
 			@include pos(a);
+
+
+			@include transform3d;
+			&:before,&:after{
+				content:'';
+				@include pos(a);
+				width: 100%;
+
+				height: 100%;
+				@include br();
+				left: 0;
+				bottom:-.1rem;
+				background:#fe6257;
+				@include transformOrigin(bottom);
+				@include transform(rotateX(70deg));
+				@include animation(scale 2s 1s infinite);
+			}
+
+			&:after{
+				@include animation(scale 2s 2s infinite);
+			}
+			
+			@-webkit-keyframes scale{
+				from {
+
+					@include transform(scale(0) rotateX(70deg) );
+					opacity:1;
+				}
+				to {
+
+					@include transform(scale(1.4) rotateX(70deg));
+					opacity:0;
+				}
+			}
 
 			img {
 				width: .5rem;
 			}
 
+		}
+
+		.zmiti-index-title{
+			@include pos(a);
+			top: 0;
+			color:#fff;
+			padding:4px 0;
+			@include br(4px);
+			background:#fe6257;
+
+			width: 2rem;
+			text-align: center;
+
+			&.right{
+				&:before{
+					content:"";
+					 width: 0;
+				    height: 0;
+				    left: 100%;
+				    top: .2rem;
+				    @include pos(a);
+				    border-top: 6px solid transparent;
+				    border-left: 6px solid #fe6257;
+				    border-bottom: 6px solid transparent;
+				}
+			}
+
+
+			&.left{
+				&:before{
+					content:"";
+					 width: 0;
+				    height: 0;
+				    right: 100%;
+				    top: .2rem;
+				    @include pos(a);
+				    border-top: 6px solid transparent;
+				    border-right: 6px solid #fe6257;
+				    border-bottom: 6px solid transparent;
+				}
+			}
 		}
 
 	}
@@ -105,4 +180,47 @@ img {
 		width: 6rem;
 	}
 
+}
+
+
+.zmiti-loading{
+	z-index:1000;
+	background:red;
+
+	.zmiti-loading-ui{
+		width: 6rem;
+		left: 2rem;
+		@include pos(a);
+		top: 4rem;
+		img{
+			width: .5rem;
+			@include pos(a);
+			top: -.45rem;
+			right: -.24rem;
+		}
+		.zmiti-loading-bar{
+			width: 100%;
+			height:8px;
+			text-align: right;
+			@include br(4px);
+			background:#fff6bc;
+			&>div{
+				@include pos(a);
+				width: 0%;
+				@include br(4px);
+				left: 0;
+				top:0;
+				z-index: 10;
+				height: 8px;
+				background:#fe6257;
+			}
+		}
+		.zmiti-progress{
+			margin-top: .5rem;
+			text-align: center;
+			color:#fe6257;
+			font-family:Georgia;
+			font-size: .7rem;
+		}
+	}
 }

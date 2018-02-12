@@ -8,10 +8,13 @@
 
 		<div class="zmiti-index-map">
 			<img :src="imgs.map" alt="">
-
-			<div class="zmiti-index-pos" v-for='pos in posData' :style='pos.pos'>
+			<div @click='showPos(pos.key)' class="zmiti-index-pos" v-for='(pos,i) in posData' :style='pos.pos'>
 				<img :src="imgs.pos" alt="">
 			</div>
+
+			<span v-tap='entryContent' :class='{"right":pos.isRight,"left":!pos.isRight}' v-for='(pos,i) in posData' v-if='i===index' class="zmiti-index-title" :style="pos.titleStyle">
+					{{pos.name}}
+				</span>
 		</div>
 		
 	</div>
@@ -31,6 +34,7 @@
 				showTitle:false,
 				showOpen:false,
 				show:true,
+				index:-1,
 				viewW:window.innerWidth,
 				viewH:window.innerHeight,
 			}
@@ -39,8 +43,23 @@
 			afterLeave(){
 				this.showOpen = true;
 			},
-			entryMain(){
-				this.show = false;
+			showPos(key){
+					this.index = key;
+			},
+			entryContent(key){
+
+				var {obserable} = this;
+				obserable.on('getPosData',()=>{
+					return this.posData[this.index]
+				});
+				
+				obserable.trigger({
+					type:'showContentPage',
+					data:{
+						posData:this.posData[this.index]
+					}
+
+				})
 			}
 		},
 		mounted(){
